@@ -1,3 +1,22 @@
-$background-dark: #0f172a;
-$text-slate-100: #f8fafc;
-$accent-blue: #3b82f6;
+:root {
+  --color-bg: #0b1120;
+  --color-surface: rgba(255, 255, 255, 0.08);
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  --color-primary: #2563eb;
+  --color-secondary: #10b981;
+  --color-accent: #38bdf8;
+
+  --color-text: #e5e7eb;
+  --color-muted: #9ca3af;
+
+  --glass-blur: blur(20px);
+
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+  --spacing-xl: 64px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --transition: all 0.3s ease;
+}
