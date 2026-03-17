@@ -7,7 +7,11 @@
 }
 
 body {
-  background-color: $bg-color;
-  color: $text-primary;
-  font-family: system-ui, sans-serif;
+  background-color: $background-dark; 
+  color: $text-slate-100;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }

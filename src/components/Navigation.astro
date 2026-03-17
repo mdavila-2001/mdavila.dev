@@ -1,0 +1,57 @@
+---
+// src/components/Navigation.astro
+---
+<div class="nav-wrapper">
+  <nav class="glass-nav">
+    <div class="nav-brand">
+      <div class="nav-logo">
+        <span class="material-symbols-outlined">code</span>
+      </div>
+      <span class="nav-title">DevPortfolio</span>
+    </div>
+    
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Projects</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <button class="nav-btn">Resume</button>
+  </nav>
+</div>
+
+<style lang="scss">
+  /* Estilos encapsulados solo para este componente */
+  @use "../styles/variables" as *;
+
+ .nav-wrapper {
+    position: fixed;
+    top: 1.5rem;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+  }
+
+ .glass-nav {
+    /* Aquí aprovechamos el CSS crudo que te dio Stitch */
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    max-width: 64rem;
+  }
+
+  /* Aplica flexbox y colores al resto de las clases (nav-brand, nav-links, etc.) usando tus variables de SASS */
+</style>

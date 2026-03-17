@@ -1,18 +1,17 @@
 ---
 import '../styles/global.scss';
-const { title } = Astro.props;
+const { title = "Danny Marcelo Dávila Barrancos | QA & Full Stack Dev" } = Astro.props;
 ---
-
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="../../public/logo.ico">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>{title}</title>
+    <link rel="icon" href="../../public/logo.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   </head>
   <body>
-    <main>
-      <slot /> 
-    </main>
-    </body>
+    <slot />
+  </body>
 </html>
