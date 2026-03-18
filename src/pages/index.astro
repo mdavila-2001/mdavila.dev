@@ -1,8 +1,13 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/sections/Hero.astro';
+import { defaultLang } from '../i18n/ui';
 ---
 
-<BaseLayout>
-  <Hero />
-</BaseLayout>
+<html lang={defaultLang}>
+  <head>
+    <meta http-equiv="refresh" content={`0;url=/${defaultLang}/`} />
+    <title>Redirigiendo...</title>
+  </head>
+  <body>
+    Redirigiendo a <a href={`/${defaultLang}/`}>la versión en {defaultLang}</a>...
+  </body>
+</html>

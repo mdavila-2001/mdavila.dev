@@ -3,7 +3,7 @@ import '../styles/global.scss';
 import Header from '../components/ui/Header.astro';
 const { title = "Danny Marcelo Dávila Barrancos | QA & Full Stack Dev" } = Astro.props;
 ---
-<html lang="es">
+<html lang="es" data-theme="dark">
   <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -11,6 +11,18 @@ const { title = "Danny Marcelo Dávila Barrancos | QA & Full Stack Dev" } = Astr
     <link rel="icon" href="../../public/logo.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+          return 'light';
+        }
+        return 'dark';
+      })();
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
   </head>
   <body>
     <Header />

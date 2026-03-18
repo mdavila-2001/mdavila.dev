@@ -1,4 +1,4 @@
-:root {
+:root[data-theme="dark"] {
   --color-bg: #0b1120;
   --color-surface: rgba(255, 255, 255, 0.08);
   --color-border: rgba(255, 255, 255, 0.1);
@@ -9,6 +9,36 @@
 
   --color-text: #e5e7eb;
   --color-muted: #9ca3af;
+  
+  --bg-gradient-1: #1e3a8a;
+  --bg-gradient-2: #10b981;
+  --bg-gradient-3: #0ea5e9;
+  --bg-gradient-4: #020617;
+  
+  --bg-nav: rgba(11, 17, 32, 0.7);
+}
+
+:root[data-theme="light"] {
+  --color-bg: #f8fafc;
+  --color-surface: rgba(0, 0, 0, 0.08);
+  --color-border: rgba(0, 0, 0, 0.15);
+
+  --color-primary: #2563eb;
+  --color-secondary: #059669; /* Darker green for contrast */
+  --color-accent: #0284c7;
+
+  --color-text: #0f172a;
+  --color-muted: #334155;
+  
+  --bg-gradient-1: #dbeafe; /* Light blue */
+  --bg-gradient-2: #d1fae5; /* Light green */
+  --bg-gradient-3: #e0f2fe; /* Light sky blue */
+  --bg-gradient-4: #f1f5f9; /* Slate 50 background */
+  
+  --bg-nav: rgba(255, 255, 255, 0.85);
+}
+
+:root {
 
   --glass-blur: blur(20px);
 

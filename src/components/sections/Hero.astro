@@ -1,6 +1,10 @@
 ---
 import Button from '../ui/Button.astro';
 import '../../styles/Hero.scss';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="hero-section">
@@ -14,7 +18,7 @@ import '../../styles/Hero.scss';
     <!-- BADGE -->
     <div class="hero-badge">
       <span class="dot"></span>
-      Disponible para freelance
+      {t('hero.badge')}
     </div>
 
     <!-- TITLE -->
@@ -24,23 +28,22 @@ import '../../styles/Hero.scss';
 
     <!-- SUBTITLE -->
     <h2>
-      QA Engineer · Fullstack Web & Mobile
+      {t('hero.subtitle')}
     </h2>
 
     <!-- DESCRIPTION -->
     <p>
-      Construyo sistemas escalables, automatizo procesos y aseguro la calidad del software 
-      con testing avanzado y desarrollo backend moderno.
+      {t('hero.description')}
     </p>
 
     <!-- BUTTONS -->
     <div class="hero-buttons">
       <Button variant="primary">
-        Ver proyectos →
+        {t('hero.projectsBtn')}
       </Button>
 
       <Button variant="secondary">
-        Contactar
+        {t('hero.contactBtn')}
       </Button>
     </div>
 

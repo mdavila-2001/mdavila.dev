@@ -1,5 +1,9 @@
 ---
 import '../../styles/Header.scss';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <div class="header-container">
@@ -12,19 +16,70 @@ import '../../styles/Header.scss';
     </div>
     
     <div class="nav-links">
-      <a href="/">Inicio</a>
-      <a href="#about">Sobre mí</a>
-      <a href="#projects">Proyectos</a>
-      <a href="#contact">Contacto</a>
+      <a href={`/${lang}/`}>{t('nav.home')}</a>
+      <a href={`/${lang}/#about`}>{t('nav.about')}</a>
+      <a href={`/${lang}/#projects`}>{t('nav.projects')}</a>
+      <a href={`/${lang}/#experience`}>{t('nav.experience')}</a>
+      <a href={`/${lang}/#contact`}>{t('nav.contact')}</a>
     </div>
     
-    <button class="resume-button">
-      Descargar CV
-    </button>
-    
-    <!-- Mobile Menu Icon -->
-    <button class="mobile-menu-btn">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <a href={`/${lang === 'es' ? 'en' : 'es'}/`} class="lang-toggle" aria-label="Toggle language" title="Cambiar idioma / Change language">
+        {lang === 'es' ? 'EN' : 'ES'}
+      </a>
+
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+        <span class="material-symbols-outlined light-icon">light_mode</span>
+        <span class="material-symbols-outlined dark-icon" style="display: none;">dark_mode</span>
+      </button>
+
+      <button class="resume-button">
+        {t('nav.resume')}
+      </button>
+      
+      <!-- Mobile Menu Icon -->
+      <button class="mobile-menu-btn">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
   </nav>
 </div>
+
+<script>
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    const currentTheme = element.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    element.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    updateIcons(newTheme);
+  };
+
+  const updateIcons = (theme: string | null) => {
+    const lightIcons = document.querySelectorAll('.light-icon');
+    const darkIcons = document.querySelectorAll('.dark-icon');
+    
+    if (theme === 'dark') {
+      lightIcons.forEach(i => (i as HTMLElement).style.display = 'block');
+      darkIcons.forEach(i => (i as HTMLElement).style.display = 'none');
+    } else {
+      lightIcons.forEach(i => (i as HTMLElement).style.display = 'none');
+      darkIcons.forEach(i => (i as HTMLElement).style.display = 'block');
+    }
+  };
+
+  document.getElementById('theme-toggle')?.addEventListener('click', handleToggleClick);
+
+  // Set initial state
+  const initialTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+  updateIcons(initialTheme);
+  // Mobile Menu Toggle
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const headerContainer = document.querySelector('.header-container');
+  
+  mobileMenuBtn?.addEventListener('click', () => {
+    headerContainer?.classList.toggle('mobile-open');
+  });
+</script>

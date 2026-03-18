@@ -10,10 +10,11 @@ body {
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
   color: var(--color-text);
-  background: radial-gradient(circle at 20% 20%, #1e3a8a, transparent 40%),
-              //radial-gradient(circle at 80% 30%, #10b981, transparent 40%),
-              radial-gradient(circle at 50% 80%, #0ea5e9, transparent 40%),
-              #020617;
+  background: radial-gradient(circle at 20% 20%, var(--bg-gradient-1), transparent 40%),
+              //radial-gradient(circle at 80% 30%, var(--bg-gradient-2), transparent 40%),
+              radial-gradient(circle at 50% 80%, var(--bg-gradient-3), transparent 40%),
+              var(--bg-gradient-4);
+  transition: background-color 0.3s ease, color 0.3s ease;
   /*background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
