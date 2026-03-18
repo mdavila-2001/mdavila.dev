@@ -1,0 +1,126 @@
+.skills-section {
+  padding: 6rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skills-container {
+  margin: 0 auto;
+}
+
+.skills-header {
+  margin-bottom: 4rem;
+}
+
+.skills-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.skills-header p {
+  opacity: 0.7;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card variations */
+.skill-card.primary { --card-color: var(--color-primary); }
+.skill-card.secondary { --card-color: var(--color-secondary); }
+.skill-card.purple { --card-color: #a855f7; }
+.skill-card.blue { --card-color: #3b82f6; }
+.skill-card.green { --card-color: #10b981; }
+
+.skill-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 1rem; // rounded-2xl
+
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+
+  transition: all 0.3s ease;
+  overflow: hidden;
+  --card-color: var(--color-primary);
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.skill-card .bg-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2rem;
+  opacity: 0.05;
+  transition: opacity 0.3s ease;
+  color: var(--card-color);
+  pointer-events: none;
+  
+  .material-symbols-outlined {
+    font-size: 8rem; 
+  }
+}
+
+.skill-card:hover .bg-icon {
+  opacity: 0.15;
+}
+
+.skill-card .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 1.5rem;
+
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--card-color);
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover .icon {
+  background: var(--card-color);
+  color: white;
+}
+
+.skill-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.skill-card .desc {
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.skill-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-card li {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}

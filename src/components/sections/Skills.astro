@@ -1,0 +1,50 @@
+---
+import { skills } from '../../data/skills';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import '../../styles/Skills.scss';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="skills-section">
+
+  <div class="skills-container">
+
+    <div class="skills-header">
+      <h2>{t('skills.title')}</h2>
+      <p>{t('skills.subtitle')}</p>
+    </div>
+
+    <div class="skills-grid">
+      {skills.map((skill) => (
+        <div class={`skill-card ${skill.color}`}>
+
+          <div class="bg-icon">
+            <span class="material-symbols-outlined">
+              {skill.icon}
+            </span>
+          </div>
+
+          <div class="icon">
+            <span class="material-symbols-outlined">
+              {skill.icon}
+            </span>
+          </div>
+
+          <h3>{t(`${skill.key}.title` as any)}</h3>
+          <p class="desc">{t(`${skill.key}.desc` as any)}</p>
+
+          <ul>
+            {skill.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+
+</section>

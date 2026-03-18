@@ -1,0 +1,56 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import '../../styles/Footer.scss';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer class="footer">
+
+  <div class="footer-top">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="logo">
+        <span>MD</span>
+      </div>
+
+      <h3>Marcelo Dávila</h3>
+
+      <p>{t('footer.description')}</p>
+    </div>
+
+    <!-- Social -->
+    <div class="footer-social">
+
+      <a href="https://github.com/mdavila-2001" target="_blank">
+        GitHub
+      </a>
+
+      <a href="#" target="_blank">
+        LinkedIn
+      </a>
+
+      <a href="#" target="_blank">
+        Twitter
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <p>
+      © {new Date().getFullYear()} Marcelo Dávila. {t('footer.rights')}
+    </p>
+
+    <div class="footer-links">
+      <a href="#">{t('footer.privacy')}</a>
+      <a href="#">{t('footer.terms')}</a>
+    </div>
+
+  </div>
+
+</footer>
