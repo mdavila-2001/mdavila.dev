@@ -1,0 +1,93 @@
+@use "./variables" as *;
+
+.hero-section {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+/* CONTAINER */
+.hero-container {
+  max-width: 880px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 2;
+}
+
+/* BADGE */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.8rem;
+  color: var(--color-secondary);
+  margin: auto;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+/* TITLE */
+.hero-container h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+
+  span {
+    background: linear-gradient(90deg, #2563eb, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* SUBTITLE */
+.hero-container h2 {
+  font-size: 1.3rem;
+  color: var(--color-accent);
+}
+
+/* DESCRIPTION */
+.hero-container p {
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+/* BUTTONS */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* GLOW POSITIONS */
+.glow-1 {
+  top: 10%;
+  left: 20%;
+}
+
+.glow-2 {
+  bottom: 10%;
+  right: 20%;
+}
+
+/* ANIMATIONS */
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

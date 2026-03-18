@@ -1,24 +1,49 @@
-<section class="container">
-  <div class="glass hero">
-    
-    <div class="hero-content">
-      <h1>Marcelo Dávila</h1>
-      
-      <h2>
-        QA Automation Engineer · Backend Developer · Software Engineer
-      </h2>
+---
+import Button from './Button.astro';
+import '../styles/Hero.scss';
+---
 
-      <p>
-        Especializado en testing automatizado, desarrollo backend y
-        automatización de procesos. Construyo sistemas escalables y soluciones
-        enfocadas en calidad de software.
-      </p>
+<section class="hero-section">
 
-      <div class="hero-buttons">
-        <button class="button button-primary">Ver proyectos</button>
-        <button class="button button-secondary">Contactar</button>
-      </div>
+  <!-- Glow -->
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <div class="hero-container">
+
+    <!-- BADGE -->
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Disponible para freelance
+    </div>
+
+    <!-- TITLE -->
+    <h1>
+      Marcelo <span>Dávila</span>
+    </h1>
+
+    <!-- SUBTITLE -->
+    <h2>
+      QA Engineer · Fullstack Web & Mobile
+    </h2>
+
+    <!-- DESCRIPTION -->
+    <p>
+      Construyo sistemas escalables, automatizo procesos y aseguro la calidad del software 
+      con testing avanzado y desarrollo backend moderno.
+    </p>
+
+    <!-- BUTTONS -->
+    <div class="hero-buttons">
+      <Button variant="primary">
+        Ver proyectos →
+      </Button>
+
+      <Button variant="secondary">
+        Contactar
+      </Button>
     </div>
 
   </div>
+
 </section>

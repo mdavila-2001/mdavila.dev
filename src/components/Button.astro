@@ -1,0 +1,14 @@
+---
+import './Button.scss';
+
+interface Props {
+  variant?: 'primary' | 'secondary';
+  class?: string;
+}
+
+const { variant = 'primary', class: className } = Astro.props;
+---
+
+<button class={`button button-${variant} ${className || ''}`}>
+  <slot />
+</button>

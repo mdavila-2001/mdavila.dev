@@ -1,5 +1,6 @@
 ---
 import '../styles/global.scss';
+import Header from '../components/Header.astro';
 const { title = "Danny Marcelo Dávila Barrancos | QA & Full Stack Dev" } = Astro.props;
 ---
 <html lang="es">
@@ -12,6 +13,7 @@ const { title = "Danny Marcelo Dávila Barrancos | QA & Full Stack Dev" } = Astr
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   </head>
   <body>
+    <Header />
     <slot />
   </body>
 </html>
