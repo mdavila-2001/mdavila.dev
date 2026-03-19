@@ -4,6 +4,10 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const pathname = Astro.url.pathname;
+const isHome = pathname === `/${lang}/` || pathname === `/${lang}`;
+const isAbout = pathname.startsWith(`/${lang}/about`);
 ---
 
 <div class="header-container">
@@ -16,8 +20,8 @@ const t = useTranslations(lang);
     </div>
     
     <div class="nav-links">
-      <a href={`/${lang}/`}>{t('nav.home')}</a>
-      <a href={`/${lang}/about`}>{t('nav.about')}</a>
+      <a href={`/${lang}/`} class={isHome ? 'active' : ''}>{t('nav.home')}</a>
+      <a href={`/${lang}/about`} class={isAbout ? 'active' : ''}>{t('nav.about')}</a>
       <a href={`/${lang}/#projects`}>{t('nav.projects')}</a>
       <a href={`/${lang}/#experience`}>{t('nav.experience')}</a>
       <a href={`/${lang}/#contact`}>{t('nav.contact')}</a>
