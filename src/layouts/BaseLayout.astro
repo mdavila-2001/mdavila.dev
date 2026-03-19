@@ -2,6 +2,9 @@
 import '../styles/global.scss';
 import Header from '../components/ui/Header.astro';
 import Footer from '../components/ui/Footer.astro';
+import CustomCursor from '../components/ui/CustomCursor.astro';
+import ParticlesBackground from '../components/ui/ParticlesBackground.astro';
+
 const { title = "Danny Marcelo Dávila Barrancos | QA & Full Stack Dev" } = Astro.props;
 ---
 <html lang="es" data-theme="dark">
@@ -26,8 +29,33 @@ const { title = "Danny Marcelo Dávila Barrancos | QA & Full Stack Dev" } = Astr
     </script>
   </head>
   <body>
+    <CustomCursor />
+    <ParticlesBackground />
     <Header />
     <slot />
     <Footer />
+    
+    <script>
+      // Scroll Reveal Observer
+      document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-active');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => observer.observe(el));
+      });
+    </script>
   </body>
 </html>

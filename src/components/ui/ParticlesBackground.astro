@@ -1,0 +1,153 @@
+<canvas id="particle-canvas" class="particle-background"></canvas>
+
+<style>
+  .particle-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none; /* Let clicks pass through */
+    opacity: 0.6;
+  }
+</style>
+
+<script>
+  class ParticleSystem {
+    canvas: HTMLCanvasElement;
+    ctx: CanvasRenderingContext2D;
+    particles: Array<{x: number, y: number, vx: number, vy: number, size: number}>;
+    mouse: {x: number | null, y: number | null, radius: number};
+    particleColor!: string;
+    lineColor!: string;
+
+    constructor() {
+      this.canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
+      this.ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
+      this.particles = [];
+      this.mouse = { x: null, y: null, radius: 150 };
+      
+      this.updateColors();
+      this.resize();
+      this.initParticles();
+
+      window.addEventListener('resize', () => this.resize());
+      window.addEventListener('mousemove', (e) => {
+        this.mouse.x = e.x;
+        this.mouse.y = e.y;
+      });
+      document.body.addEventListener('mouseleave', () => {
+        this.mouse.x = null;
+        this.mouse.y = null;
+      });
+
+      // Hook into theme change to reload colors dynamically
+      const observer = new MutationObserver(() => this.updateColors());
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+      this.animate();
+    }
+
+    updateColors() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      if (theme === 'dark') {
+        this.particleColor = 'rgba(255, 255, 255, 0.4)';
+        this.lineColor = 'rgba(255, 255, 255, 0.1)';
+      } else {
+        this.particleColor = 'rgba(19, 91, 236, 0.3)'; // Primary blue
+        this.lineColor = 'rgba(19, 91, 236, 0.1)'; // Primary blue
+      }
+    }
+
+    resize() {
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
+      this.initParticles(); // Re-init to adjust count to screen size
+    }
+
+    initParticles() {
+      this.particles = [];
+      const particleCount = Math.floor((this.canvas.width * this.canvas.height) / 15000); // Responsive amount
+      
+      for (let i = 0; i < particleCount; i++) {
+        this.particles.push({
+          x: Math.random() * this.canvas.width,
+          y: Math.random() * this.canvas.height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          size: Math.random() * 2 + 1
+        });
+      }
+    }
+
+    animate() {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      
+      // Update and draw particles
+      for (let i = 0; i < this.particles.length; i++) {
+        let p = this.particles[i];
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Bounce edges
+        if (p.x < 0 || p.x > this.canvas.width) p.vx = -p.vx;
+        if (p.y < 0 || p.y > this.canvas.height) p.vy = -p.vy;
+
+        // Mouse interaction (repel softly)
+        if (this.mouse.x !== null && this.mouse.y !== null) {
+          const dx = this.mouse.x - p.x;
+          const dy = this.mouse.y - p.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < this.mouse.radius) {
+            const force = (this.mouse.radius - distance) / this.mouse.radius;
+            const dirX = dx / distance;
+            const dirY = dy / distance;
+            p.x -= dirX * force * 2;
+            p.y -= dirY * force * 2;
+          }
+        }
+
+        // Draw particle
+        this.ctx.beginPath();
+        this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        this.ctx.fillStyle = this.particleColor;
+        this.ctx.fill();
+
+        // Connect particles
+        for (let j = i; j < this.particles.length; j++) {
+          let p2 = this.particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = this.lineColor;
+            this.ctx.lineWidth = 1 - (distance / 150);
+            this.ctx.moveTo(p.x, p.y);
+            this.ctx.lineTo(p2.x, p2.y);
+            this.ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(() => this.animate());
+    }
+  }
+
+  // Prevent multiple instances if Astro re-evaluates
+  declare global {
+    interface Window {
+      particleSystem: any;
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!window.particleSystem) {
+      window.particleSystem = new ParticleSystem();
+    }
+  });
+</script>

@@ -1,0 +1,186 @@
+---
+const { class: className = '', desktopGrid = false } = Astro.props;
+---
+
+<div class={`horizontal-scroller-wrapper ${className} ${desktopGrid ? 'desktop-grid' : ''}`}>
+  <button class="scroll-btn left" aria-label="Scroll left">
+    <span class="material-symbols-outlined">chevron_left</span>
+  </button>
+  
+  <div class="scroll-container">
+    <div class="scroll-content">
+      <slot />
+    </div>
+  </div>
+
+  <button class="scroll-btn right" aria-label="Scroll right">
+    <span class="material-symbols-outlined">chevron_right</span>
+  </button>
+</div>
+
+<style>
+  .horizontal-scroller-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: visible; /* Don't clip arrows */
+
+    &:hover .scroll-btn {
+      opacity: 1;
+    }
+  }
+
+  .scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    padding-bottom: 1rem; /* Space for shadow */
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .scroll-content {
+    display: flex;
+    gap: 1rem;
+    min-width: min-content;
+    
+    /* Make children snap */
+    > * {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: 85vw; /* Mobile default */
+      max-width: 400px;
+      
+      @media (min-width: 640px) {
+        width: 300px; /* Tablet default */
+      }
+    }
+  }
+
+  .scroll-btn {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    opacity: 0.85;
+    transition: opacity 0.3s ease, background-color 0.2s ease, transform 0.2s ease;
+
+    @media (min-width: 1024px) {
+      opacity: 0; /* On desktop, show only on hover */
+    }
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+    
+    &:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    &.left {
+      left: 0.75rem;
+    }
+
+    &.right {
+      right: 0.75rem;
+    }
+
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  /* DESKTOP GRID FALLBACK */
+  .horizontal-scroller-wrapper.desktop-grid {
+    @media (min-width: 1024px) {
+      .scroll-container {
+        overflow: visible;
+        padding-bottom: 0;
+      }
+
+      .scroll-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        width: 100%;
+        gap: 1.5rem;
+        
+        > * {
+          width: 100%;
+          max-width: none;
+        }
+      }
+
+      .scroll-btn {
+        display: none !important;
+      }
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const wrappers = document.querySelectorAll('.horizontal-scroller-wrapper');
+    
+    wrappers.forEach(wrapper => {
+      const container = wrapper.querySelector('.scroll-container') as HTMLElement;
+      const leftBtn = wrapper.querySelector('.scroll-btn.left') as HTMLButtonElement;
+      const rightBtn = wrapper.querySelector('.scroll-btn.right') as HTMLButtonElement;
+      
+      if (!container || !leftBtn || !rightBtn) return;
+
+      const updateButtons = () => {
+        const isAtStart = container.scrollLeft <= 0;
+        const isAtEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 10;
+        
+        leftBtn.classList.toggle('hidden', isAtStart);
+        rightBtn.classList.toggle('hidden', isAtEnd);
+        
+        // Hide both if no overflow
+        if (container.scrollWidth <= container.clientWidth) {
+          leftBtn.classList.add('hidden');
+          rightBtn.classList.add('hidden');
+        }
+      };
+
+      // Initial check
+      updateButtons();
+
+      // Listen for scroll to update visibility
+      container.addEventListener('scroll', updateButtons);
+      window.addEventListener('resize', updateButtons);
+
+      // Simple mutation observer to check if content changes dynamically
+      const observer = new MutationObserver(updateButtons);
+      observer.observe(container, { childList: true, subtree: true });
+
+      // Click handlers
+      leftBtn.addEventListener('click', () => {
+        container.scrollBy({ left: -320, behavior: 'smooth' });
+      });
+
+      rightBtn.addEventListener('click', () => {
+        container.scrollBy({ left: 320, behavior: 'smooth' });
+      });
+    });
+  });
+</script>

@@ -43,6 +43,22 @@ export const ui = {
     'footer.rights': 'Todos los derechos reservados.',
     'footer.privacy': 'Política de privacidad',
     'footer.terms': 'Términos de servicio',
+
+    'about.badge': 'Perfil',
+    'about.title': 'Sobre mí & Experiencia',
+    'about.description': 'Apasionado por construir software escalable, automatizar procesos y asegurar calidad.',
+
+    'about.role': 'QA Engineer · Fullstack Developer',
+    'about.location': 'Santa Cruz, Bolivia',
+
+    'about.paragraph1': 'Especializado en testing automatizado, backend con Python (FastAPI) y desarrollo frontend moderno.',
+    'about.paragraph2': 'Me enfoco en calidad de software, arquitectura limpia y soluciones escalables.',
+
+    'about.skillsTitle': 'Habilidades técnicas',
+    'about.toolsTitle': 'Herramientas & Metodologías',
+
+    'about.exp': 'Años Exp.',
+    'about.projects': 'Proyectos',
   },
   en: {
     'nav.home': 'Home',
@@ -81,5 +97,21 @@ export const ui = {
     'footer.rights': 'All rights reserved.',
     'footer.privacy': 'Privacy policy',
     'footer.terms': 'Terms of service',
+
+    'about.badge': 'Profile',
+    'about.title': 'About Me & Expertise',
+    'about.description': 'Passionate about building scalable software and ensuring quality.',
+
+    'about.role': 'QA Engineer · Fullstack Developer',
+    'about.location': 'Santa Cruz, Bolivia',
+
+    'about.paragraph1': 'Specialized in automated testing, backend with Python (FastAPI) and modern frontend.',
+    'about.paragraph2': 'Focused on software quality, clean architecture and scalable solutions.',
+
+    'about.skillsTitle': 'Technical Skills',
+    'about.toolsTitle': 'Tools & Methodologies',
+
+    'about.exp': 'Years Exp.',
+    'about.projects': 'Projects',
   },
 } as const;

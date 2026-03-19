@@ -1,0 +1,69 @@
+---
+const { t } = Astro.props;
+---
+
+<div class="about-card-wide glass-card group reveal delay-100">
+  <div class="card-layout">
+    <!-- Image Container -->
+    <div class="image-container">
+      <div class="image-wrapper">
+        <img src="../../../public/images/profile.png" alt="Marcelo Dávila" />
+        <div class="blur-overlay"></div>
+      </div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="content-container">
+      <div class="bio-section">
+        <div class="availability-badge">
+          <span class="pulse-dot"></span>
+          {t('hero.badge')}
+        </div>
+
+        <h3 class="name-title">Danny Marcelo Dávila Barrancos</h3>
+        <p class="role-subtitle">{t('about.role')}</p>
+        <div class="location">
+          <span class="material-symbols-outlined icon">location_on</span>
+          <span>{t('about.location')}</span>
+        </div>
+
+        <div class="bio-text">
+          <p>{t('about.paragraph1')}</p>
+          <p>{t('about.paragraph2')}</p>
+        </div>
+      </div>
+
+      <div class="stats-and-actions">
+        <div class="stat-block border-right">
+          <span class="label">{t('about.exp')}</span>
+          <span class="number">2+</span>
+        </div>
+        <div class="stat-block border-right">
+          <span class="label">{t('about.projects')}</span>
+          <span class="number">X+</span>
+        </div>
+        
+        <div class="spacer"></div>
+
+        <div class="actions-group">
+          <div class="socials">
+            <a href="mailto:dmarcelo201@gmail.com" aria-label="Email">
+              <span class="material-symbols-outlined">mail</span>
+            </a>
+            <a href="https://github.com/mdavila-2001" target="_blank" aria-label="GitHub">
+              <span class="material-symbols-outlined">code_blocks</span>
+            </a>
+            <a href="https://www.linkedin.com/in/marcelo-dávila/" target="_blank" aria-label="LinkedIn">
+              <span class="material-symbols-outlined">dataset_linked</span>
+            </a>
+          </div>
+          
+          <button class="resume-btn">
+            <span class="material-symbols-outlined">download</span>
+            CV
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

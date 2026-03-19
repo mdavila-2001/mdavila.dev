@@ -3,6 +3,12 @@
 @use "Button.scss" as *;
 @use "Hero.scss" as *;
 @use "Skills.scss" as *;
+@use "About.scss" as *;
+@use "AboutHero.scss" as *;
+@use "AboutCard.scss" as *;
+@use "AboutStats.scss" as *;
+@use "SkillsGrid.scss" as *;
+
 
 * {
   margin: 0;
@@ -12,17 +18,11 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--color-text);
-  background: radial-gradient(circle at 20% 20%, var(--bg-gradient-1), transparent 40%),
-              //radial-gradient(circle at 80% 30%, var(--bg-gradient-2), transparent 40%),
-              radial-gradient(circle at 50% 80%, var(--bg-gradient-3), transparent 40%),
-              var(--bg-gradient-4);
+  background: var(--bg-gradient-4);
+  background-attachment: fixed;
   transition: background-color 0.3s ease, color 0.3s ease;
-  /*background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;*/
 }
 
 .glow {
@@ -47,4 +47,37 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.glass-panel {
+  background: var(--color-glass-panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-panel-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card {
+  background: var(--color-glass-card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-glass-border);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: var(--color-glass-card-hover);
+  border-color: rgba(19, 91, 236, 0.4);
+  box-shadow: 0 0 15px rgba(19, 91, 236, 0.15);
+  transform: translateY(-2px);
+}
+
+.page-bg {
+  background-color: var(--color-bg);
+  background-image: 
+    radial-gradient(at 0% 0%, var(--bg-gradient-1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, var(--bg-gradient-2) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, var(--bg-gradient-1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, var(--bg-gradient-2) 0px, transparent 50%);
+  background-attachment: fixed;
 }

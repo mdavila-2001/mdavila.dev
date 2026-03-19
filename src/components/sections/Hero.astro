@@ -16,29 +16,29 @@ const t = useTranslations(lang);
   <div class="hero-container">
 
     <!-- BADGE -->
-    <div class="hero-badge">
+    <div class="hero-badge reveal">
       <span class="dot"></span>
       {t('hero.badge')}
     </div>
 
     <!-- TITLE -->
-    <h1>
+    <h1 class="reveal delay-100">
       QA Automation & Fullstack Dev
       <span>{t('hero.title')}</span>
     </h1>
 
     <!-- SUBTITLE -->
-    <h2>
+    <h2 class="reveal delay-200">
       {t('hero.subtitle')}
     </h2>
 
     <!-- DESCRIPTION -->
-    <p>
+    <p class="reveal delay-300">
       {t('hero.description')}
     </p>
 
     <!-- BUTTONS -->
-    <div class="hero-buttons">
+    <div class="hero-buttons reveal delay-400">
       <Button variant="primary">
         {t('hero.projectsBtn')}
       </Button>

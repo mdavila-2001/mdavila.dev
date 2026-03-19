@@ -1,0 +1,169 @@
+---
+const { t } = Astro.props;
+import HorizontalScroller from '../ui/HorizontalScroller.astro';
+
+type SkillCategory = {
+  title: string;
+  skills?: any[];
+  tools?: any[];
+};
+
+const skillCategories: SkillCategory[] = [
+  {
+    title: 'Frontend',
+    skills: [
+      { name: 'Next.js', level: 80, slug: 'nextdotjs', color: '#000000', desc: 'Frontend Framework', type: 'advanced' },
+      { name: 'Astro', level: 85, slug: 'astro', color: '#FF5D01', desc: 'Performance Web', type: 'advanced' },
+      { name: 'Angular', level: 75, slug: 'angular', color: '#DD0031', desc: 'Scaling Frontend', type: 'intermediate' },
+    ]
+  },
+  {
+    title: 'Backend',
+    skills: [
+      { name: '.NET', level: 85, slug: 'dotnet', color: '#512BD4', desc: 'Backend & Enterprise', type: 'advanced' },
+      { name: 'Python', level: 88, slug: 'python', color: '#3776AB', desc: 'Data & Automation', type: 'advanced' },
+      { name: 'FastAPI', level: 70, slug: 'fastapi', color: '#05998B', desc: 'Modern Python APIs', type: 'intermediate' },
+      { name: 'Node.js Express', level: 70, slug: 'nodedotjs', color: '#05998B', desc: 'Backend JavaScript', type: 'intermediate' },
+      { name: 'Spring Boot', level: 85, slug: 'springboot', color: '#6DB33F', desc: 'Enterprise Java', type: 'advanced' },
+    ]
+  },
+  {
+    title: 'Mobile',
+    skills: [
+      { name: 'Flutter', level: 90, slug: 'flutter', color: '#02569B', desc: 'Cross-platform Mobile', type: 'advanced' },
+      { name: 'React Native', level: 75, slug: 'react', color: '#61DAFB', desc: 'Native Apps', type: 'intermediate' },
+      { name: 'Kotlin', level: 75, slug: 'kotlin', color: '#7F52FF', desc: 'Native Apps', type: 'intermediate' },
+    ]
+  },
+  {
+    title: 'Bases de Datos',
+    skills: [
+      { name: 'PostgreSQL', level: 85, slug: 'postgresql', color: '#4169E1', desc: 'Relational DB', type: 'advanced' },
+      { name: 'MySQL', level: 85, slug: 'mysql', color: '#4479A1', desc: 'Relational DB', type: 'advanced' },
+      { name: 'MongoDB', level: 64, slug: 'mongodb', color: '#44D487', desc: 'Relational DB', type: 'beginner' }
+    ]
+  },
+  {
+    title: 'Maquetación Web',
+    tools: [
+      { name: 'HTML', slug: 'html5', color: '#E34F26', desc: 'Web Structure', type: 'advanced' },
+      { name: 'CSS', slug: 'css', color: '#1572B6', desc: 'Web Styling', type: 'advanced' },
+      { name: 'JavaScript', slug: 'javascript', color: '#F7DF1E', desc: 'Web Interactivity', type: 'advanced' },
+      { name: 'TypeScript', slug: 'typescript', color: '#007ACC', desc: 'Web Interactivity', type: 'advanced' },
+      { name: 'Tailwind CSS', slug: 'tailwindcss', color: '#06B6D4', desc: 'Web Interactivity', type: 'advanced' },
+      { name: 'Sass', slug: 'sass', color: '#CC6699', desc: 'Web Interactivity', type: 'advanced' },
+    ]
+  },
+  {
+    title: 'QA & DevOps',
+    tools: [
+      { name: 'Jenkins', slug: 'jenkins', color: '#D24939', type: 'tool' },
+      { name: 'Automated Testing', icon: 'settings_suggest', color: '#4CAF50', type: 'workflow' },
+      { name: 'API Testing', icon: 'api', color: '#FF9800', type: 'workflow' },
+      { name: 'Regression Testing', icon: 'history', color: '#9C27B0', type: 'workflow' },
+      { name: 'Unit Testing', icon: 'fact_check', color: '#2196F3', type: 'workflow' },
+      { name: 'PyTest', slug: 'pytest', color: '#0A9EDC', type: 'workflow' }
+    ]
+  }
+];
+---
+
+<section class="skills-section">
+  <div class="header">
+    <h2>{t('about.skillsTitle')}</h2>
+    <div class="actions">
+      <button class="active" aria-label="Grid View">
+        <span class="material-symbols-outlined">grid_view</span>
+      </button>
+      <button aria-label="List View">
+        <span class="material-symbols-outlined">list</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="categories-container">
+    {skillCategories.map((category: SkillCategory) => (
+      <div class="skill-category reveal delay-100">
+        <h3 class="category-title">{category.title}</h3>
+        
+        {category.skills && (
+          <HorizontalScroller class="skills-grid reveal delay-200" desktopGrid={true}>
+            {category.skills.map((skill: any) => (
+              <div class="skill-card-glass glass-card group">
+                <div class="top-row">
+                  <div class="icon-box-real">
+                     <img src={`https://cdn.simpleicons.org/${skill.slug}/${skill.color.replace('#', '')}`} alt={skill.name} class="skill-icon" />
+                  </div>
+                  <span class={`badge ${skill.type}`}>
+                    {skill.type === 'advanced' ? 'Advanced' : skill.type === 'intermediate' ? 'Intermediate' : 'Beginner'}
+                  </span>
+                </div>
+
+                <div class="info">
+                  <h4>{skill.name}</h4>
+                  <p>{skill.desc}</p>
+                </div>
+
+                <div class="progress-bar">
+                  <div class="fill" style={`width: ${skill.level}%; background-color: ${skill.color};`}></div>
+                </div>
+              </div>
+            ))}
+          </HorizontalScroller>
+        )}
+
+        {category.tools && (
+          <div class="tools-flex">
+            {category.tools.map((tool: any) => (
+              <span class="glass-card tool-item" style={tool.color ? `--tool-color: ${tool.color}` : ''}>
+                {tool.slug ? (
+                  <img src={`https://cdn.simpleicons.org/${tool.slug}/${tool.color ? tool.color.replace('#', '') : 'cbd5e1'}`} alt={tool.name} class="tool-icon" />
+                ) : (
+                   <span class="material-symbols-outlined tool-icon-font" style={tool.color ? `color: ${tool.color}` : ''}>{tool.icon}</span>
+                )}
+                {tool.name}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</section>
+
+
+<style>
+  .icon-box-real {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .skill-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .tool-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    .tool-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      opacity: 0.8;
+    }
+
+    .tool-icon-font {
+      font-size: 1.25rem;
+      opacity: 0.8;
+    }
+  }
+</style>

@@ -26,7 +26,7 @@ export const skills = [
   {
     key: 'skills.databases',
     icon: 'storage',
-    color: 'green',
+    color: 'orange',
     items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis']
   }
 ];

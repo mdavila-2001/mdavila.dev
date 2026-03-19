@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import AboutHero from '../../components/about/AboutHero.astro';
+import AboutCard from '../../components/about/AboutCard.astro';
+import SkillsGrid from '../../components/about/SkillsGrid.astro';
+
+import { languages } from '../../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout>
+  <main class="about-page">
+    <div class="layout-content-container">
+      <AboutHero t={t} />
+
+      <section class="about-stack">
+        <AboutCard t={t} />
+        <SkillsGrid t={t} />
+      </section>
+    </div>
+  </main>
+</Layout>
