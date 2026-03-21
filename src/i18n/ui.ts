@@ -59,6 +59,23 @@ export const ui = {
 
     'about.exp': 'Años Exp.',
     'about.projects': 'Proyectos',
+
+    'experience.title.opti': 'Desarrollador Mobile',
+    'experience.company.opti': 'Optiventa',
+    'experience.year_start.opti': 'Febrero 2025',
+    'experience.year_end.opti': 'Mayo 2025',
+    'experience.achievement1.opti': 'Desarrollo de aplicaciones móviles con Flutter',
+    'experience.achievement2.opti': 'Implementación con bases de datos en la nube con Firebase',
+
+    'experience.title.qa': 'Ingeniero QA / Ingeniero Líder en QA',
+    'experience.company.qa': 'FOS Technologies',
+    'experience.year_start.qa': 'Noviembre 2024',
+    'experience.year_end.qa': 'Presente',
+    'experience.achievement1.qa': 'Pruebas manuales y automatizadas con Selenium',
+    'experience.achievement2.qa': 'Pruebas de API con Postman y Pytest',
+    'experience.achievement3.qa': 'Pruebas de rendimiento con JMeter',
+    'experience.achievement4.qa': 'Pruebas de integración con Jenkins',
+    'experience.achievement5.qa': 'Auxiliar Full Stack con Spring Boot, .NET y Angular',
   },
   en: {
     'nav.home': 'Home',
@@ -113,5 +130,22 @@ export const ui = {
 
     'about.exp': 'Years Exp.',
     'about.projects': 'Projects',
+
+    'experience.title.opti': 'Mobile Developer',
+    'experience.company.opti': 'Optiventa',
+    'experience.year_start.opti': 'February 2025',
+    'experience.year_end.opti': 'May 2025',
+    'experience.achievement1.opti': 'Mobile application development with Flutter',
+    'experience.achievement2.opti': 'Implementation with cloud databases with Firebase',
+
+    'experience.title.qa': 'QA Engineer / QA Lead Engineer',
+    'experience.company.qa': 'FOS Technologies',
+    'experience.year_start.qa': 'November 2024',
+    'experience.year_end.qa': 'Present',
+    'experience.achievement1.qa': 'Manual and automated testing with Selenium',
+    'experience.achievement2.qa': 'API testing with Postman and Pytest',
+    'experience.achievement3.qa': 'Performance testing with JMeter',
+    'experience.achievement4.qa': 'Integration testing with Jenkins',
+    'experience.achievement5.qa': 'Full Stack Assistant with Spring Boot, .NET and Angular',
   },
 } as const;
