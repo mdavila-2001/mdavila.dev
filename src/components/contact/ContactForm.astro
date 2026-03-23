@@ -60,13 +60,7 @@ const t = useTranslations(lang);
 
         const data = new FormData(form);
 
-        const message = `
-            Hola, soy ${data.get("firstName")} ${data.get("lastName")} \n
-            Correo: ${data.get("email")} \n
-            Asunto: ${data.get("subject")} \n \n
-            Mensaje: \n
-            ${data.get("message")}
-        `;
+        const message = `Hola, soy ${data.get("firstName")} ${data.get("lastName")} \nCorreo: ${data.get("email")} \nAsunto: ${data.get("subject")} \n \nMensaje: ${data.get("message")}`;
 
         const phone = "59177682259";
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;

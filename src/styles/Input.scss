@@ -1,5 +1,13 @@
 .input-wrapper {
   position: relative;
+
+  .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+  }
 }
 
 .input {
@@ -17,12 +25,4 @@
     border-color: var(--color-primary);
     box-shadow: 0 0 0 2px rgba(19, 91, 236, 0.1);
   }
-}
-
-.icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #64748b;
 }

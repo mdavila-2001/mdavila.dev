@@ -20,3 +20,11 @@ export function getRouteFromUrl(url: URL): string | undefined {
   }
   return url.pathname;
 }
+
+export function localizePath(path: string, lang: string): string {
+  if (path.startsWith('http') || path.startsWith('mailto:') || path.startsWith('tel:')) {
+    return path;
+  }
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `/${lang}/${cleanPath}`;
+}

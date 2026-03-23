@@ -1,15 +1,28 @@
 ---
 import '../../styles/Button.scss';
+import { getLangFromUrl, localizePath } from '../../i18n/utils';
 
 interface Props {
   variant?: 'primary' | 'secondary';
   class?: string;
   id?: string;
+  href?: string;
+  target?: string;
+  rel?: string;
 }
 
-const { variant = 'primary', class: className, id } = Astro.props;
+const { variant = 'primary', class: className, id, href, target, rel } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const Tag = href ? 'a' : 'button';
+const localizedHref = href ? localizePath(href, lang) : undefined;
 ---
 
-<button id={id} class={`button button-${variant} ${className || ''}`}>
+<Tag
+  id={id}
+  class={`button button-${variant} ${className || ''}`}
+  href={localizedHref}
+  target={target}
+  rel={rel}
+>
   <slot />
-</button>
+</Tag>
