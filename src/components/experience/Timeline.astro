@@ -1,0 +1,24 @@
+---
+import TimelineItem from "./TimelineItem.astro";
+
+interface Props {
+  items: {
+    title: string;
+    company: string;
+    period: string;
+    side: string;
+    achievements: string[];
+    tech: string[];
+  }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="timeline">
+  {
+    items.map((item) => (
+      <TimelineItem item={item} />
+    ))
+  }
+</div>

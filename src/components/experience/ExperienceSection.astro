@@ -1,0 +1,27 @@
+---
+import { experience } from "../../data/experience";
+import Timeline from "./Timeline.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="experience">
+  
+  <!-- Glow Backgrounds from Main Page -->
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="glow" style="background: radial-gradient(circle, var(--color-secondary, #10b981), transparent 60%); top: 40%; left: 20%; opacity: 0.3;"></div>
+
+  <div class="experience__container">
+
+    <div class="experience__title">
+      <h2>{t('nav.experience')}</h2>
+      <p>{t('about.description')}</p>
+    </div>
+
+    <Timeline items={experience} />
+
+  </div>
+</section>

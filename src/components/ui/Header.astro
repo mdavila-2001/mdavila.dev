@@ -8,6 +8,7 @@ const t = useTranslations(lang);
 const pathname = Astro.url.pathname;
 const isHome = pathname === `/${lang}/` || pathname === `/${lang}`;
 const isAbout = pathname.startsWith(`/${lang}/about`);
+const isExperience = pathname.startsWith(`/${lang}/experience`);
 ---
 
 <div class="header-container">
@@ -23,7 +24,7 @@ const isAbout = pathname.startsWith(`/${lang}/about`);
       <a href={`/${lang}/`} class={isHome ? 'active' : ''}>{t('nav.home')}</a>
       <a href={`/${lang}/about`} class={isAbout ? 'active' : ''}>{t('nav.about')}</a>
       <a href={`/${lang}/#projects`}>{t('nav.projects')}</a>
-      <a href={`/${lang}/#experience`}>{t('nav.experience')}</a>
+      <a href={`/${lang}/experience`} class={isExperience ? 'active' : ''}>{t('nav.experience')}</a>
       <a href={`/${lang}/#contact`}>{t('nav.contact')}</a>
     </div>
     

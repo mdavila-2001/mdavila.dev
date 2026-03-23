@@ -66,14 +66,12 @@
   font-size: 1.1rem;
 }
 
-/* BUTTONS */
 .hero-buttons {
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
 
-/* GLOW POSITIONS */
 .glow-1 {
   background: radial-gradient(circle, #7c3aed, transparent 60%);
   top: -100px;

@@ -1,0 +1,45 @@
+.experience-page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 8rem 1rem 4rem 1rem;
+
+  @media (min-width: 1024px) {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+}
+
+.experience {
+  padding: 4rem 1rem;
+  width: 100%;
+  position: relative;
+
+  .experience-page & {
+    padding-top: 0;
+  }
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--color-text);
+    }
+
+    p {
+      color: var(--color-muted, #94a3b8);
+      margin-top: 0.5rem;
+    }
+  }
+}

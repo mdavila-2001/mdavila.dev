@@ -1,0 +1,55 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+interface Props {
+  item: {
+    title: string;
+    company: string;
+    period: string;
+    side: string;
+    achievements: string[];
+    tech: string[];
+    icon?: string;
+  };
+}
+
+const { item } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const [startKey, endKey] = item.period.split(" - ");
+const translatedPeriod = `${t(startKey as any)} - ${t(endKey as any)}`;
+const iconName = item.icon || "work";
+---
+
+<div class={`timeline-item ${item.side}`}>
+  
+  <div class="timeline-dot"></div>
+
+  <div class="timeline-card glass-card">
+    <div class="card-header">
+      <div class="title-company">
+        <h3>{t(item.title as any)}</h3>
+        <div class="company-info">
+          <span class="material-symbols-outlined icon">{iconName}</span>
+          <span>{t(item.company as any)}</span>
+        </div>
+      </div>
+      <span class="period-pill">{translatedPeriod}</span>
+    </div>
+
+    <ul class="achievements-list">
+      {item.achievements.map(a => (
+        <li>
+          <span class="material-symbols-outlined check-icon">check_circle</span>
+          <span>{t(a as any)}</span>
+        </li>
+      ))}
+    </ul>
+
+    <div class="tech-stack">
+      {item.tech.map(t => <span>{t}</span>)}
+    </div>
+
+  </div>
+</div>

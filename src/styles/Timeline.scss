@@ -1,0 +1,14 @@
+.timeline {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent, var(--color-primary, #1f8cf9), transparent);
+        transform: translateX(-50%);
+        box-shadow: 0 0 15px var(--color-primary, #1f8cf9), 0 0 5px var(--color-primary, #1f8cf9);
+    }
+}
