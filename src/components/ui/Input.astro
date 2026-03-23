@@ -1,0 +1,22 @@
+---
+import '../../styles/Input.scss';
+
+interface Props {
+  type?: astroHTML.JSX.HTMLInputTypeAttribute;
+  placeholder?: string;
+  icon?: string;
+  name?: string;
+}
+
+const { type = "text", placeholder, icon, name } = Astro.props;
+---
+
+<div class="input-wrapper">
+  {icon && <span class="material-symbols-outlined icon">{icon}</span>}
+  <input
+    type={type}
+    name={name}
+    placeholder={placeholder}
+    class="input"
+  />
+</div>

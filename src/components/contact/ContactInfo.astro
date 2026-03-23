@@ -1,0 +1,40 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="contact-info">
+
+  <h1 class="contact-info__title">
+    {t('contact.title1')}
+    <span class="gradient-text">{t('contact.title2')}</span>
+  </h1>
+
+  <p class="contact-info__description">
+    {t('contact.description')}
+  </p>
+
+  <div class="contact-info__items">
+    <div class="contact-info__item">
+      <div class="contact-info__icon">
+        <span class="material-symbols-outlined">mail</span>
+      </div>
+      <div>
+        <h3>Email</h3>
+        <a href="mailto:dmarcelo201@gmail.com">dmarcelo201@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="contact-info__item">
+      <div class="contact-info__icon contact-info__icon--secondary">
+        <span class="material-symbols-outlined">location_on</span>
+      </div>
+      <div>
+        <h3>{t('contact.location').split('(')[0]}</h3>
+        <p>{t('contact.location')}</p>
+      </div>
+    </div>
+  </div>
+</div>

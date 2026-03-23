@@ -4,11 +4,12 @@ import '../../styles/Button.scss';
 interface Props {
   variant?: 'primary' | 'secondary';
   class?: string;
+  id?: string;
 }
 
-const { variant = 'primary', class: className } = Astro.props;
+const { variant = 'primary', class: className, id } = Astro.props;
 ---
 
-<button class={`button button-${variant} ${className || ''}`}>
+<button id={id} class={`button button-${variant} ${className || ''}`}>
   <slot />
 </button>

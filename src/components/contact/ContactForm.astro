@@ -1,0 +1,81 @@
+---
+import Input from '../ui/Input.astro';
+import Textarea from '../ui/Textarea.astro';
+import Button from '../ui/Button.astro';
+
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="contact-form-panel glass-card">
+  <form id="contact-form" class="contact-form">
+
+    <div class="form-grid">
+      <label class="form-label">
+        <span>{t('contact.form.firstName')}</span>
+        <Input name="firstName" placeholder="John" />
+      </label>
+      <label class="form-label">
+        <span>{t('contact.form.lastName')}</span>
+        <Input name="lastName" placeholder="Doe" />
+      </label>
+    </div>
+
+    <label class="form-label">
+      <span>{t('contact.form.email')}</span>
+      <Input
+        name="email"
+        type="email"
+        placeholder="john@example.com"
+      />
+    </label>
+
+    <label class="form-label">
+      <span>{t('contact.form.subject')}</span>
+      <Input
+        name="subject"
+        placeholder={t('contact.form.subjectPlaceholder') as any}
+      />
+    </label>
+
+    <label class="form-label">
+      <span>{t('contact.form.message')}</span>
+      <Textarea
+        name="message"
+        placeholder={t('contact.form.messagePlaceholder') as any}
+      />
+    </label>
+
+    <button type="submit" class="submit-btn" id="send-btn">
+      <span>{t('contact.form.submit')}</span>
+      <span class="material-symbols-outlined">send</span>
+    </button>
+
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    const message = `
+Hola, soy ${data.get("firstName")} ${data.get("lastName")}
+Correo: ${data.get("email")}
+Asunto: ${data.get("subject")}
+
+Mensaje:
+${data.get("message")}
+    `;
+
+    const phone = "59177682259";
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+  });
+</script>
