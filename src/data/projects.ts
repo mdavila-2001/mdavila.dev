@@ -21,4 +21,14 @@ export const projects: Project[] = [
     tech: ['HTML', 'CSS', 'JavaScript', 'Node.js Express', 'PostgreSQL', 'Docker'],
     codeUrl: 'https://github.com/mdavila-2001/aportaya',
   },
+  {
+    id: 2,
+    title: 'projects.title.gopuppy',
+    subtitle: 'projects.subtitle.gopuppy',
+    description: 'projects.description.gopuppy',
+    image: [ 'https://i.ibb.co/FkCYJxq7/imagen-2026-03-24-093636187.png' ],
+    status: 'wip',
+    tech: ['Java', 'Android', 'Kotlin', 'Jetpack Compose'],
+    codeUrl: 'https://github.com/mdavila-2001/gopuppy',
+  }
 ]

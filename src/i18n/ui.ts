@@ -73,6 +73,11 @@ export const ui = {
     'projects.subtitle.aportaya': 'Plataforma de Crowdfunding',
     'projects.description.aportaya': 'AportaYa es una plataforma de crowdfunding para proyectos de distintas causas con el fin de ayudar a los autores a cumplir sus objetivos económicos. El proyecto cuenta con un sistema de pagos nativo que de momento está maquetado.',
 
+    'projects.title.gopuppy': 'GoPuppy',
+    'projects.subtitle.gopuppy': 'Aplicación para paseadores y dueños',
+    'projects.description.gopuppy': 'GoPuppy es una aplicación móvil para Android que conecta a paseadores de mascotas con dueños para brindar el servicio de paseos, cuenta con un sistema de geolocalización para encontrar paseadores cercanos.',
+    
+
     'experience.title.opti': 'Desarrollador Mobile',
     'experience.company.opti': 'Optiventa',
     'experience.year_start.opti': 'Febrero 2025',
@@ -186,6 +191,8 @@ export const ui = {
     'about.projects': 'Projects',
 
     'projects.title': 'Projects',
+    'projects.subtitle': 'A collection of applications demonstrating expertise in frontend architecture, backend scalability, user-centric design and quality assurance.',
+
     'project.status.live': 'Live',
     'project.status.beta': 'Beta',
     'project.status.wip': 'Work in progress',
@@ -195,6 +202,10 @@ export const ui = {
     'projects.title.aportaya': 'AportaYa',
     'projects.subtitle.aportaya': 'Crowdfunding Platform',
     'projects.description.aportaya': 'AportaYa is a crowdfunding platform for projects of different causes in order to help authors achieve their economic goals. The project has a native payment system that is currently being prototyped.',
+
+    'projects.title.gopuppy': 'GoPuppy',
+    'projects.subtitle.gopuppy': 'Application for pet walkers and owners',
+    'projects.description.gopuppy': 'GoPuppy is an Android mobile application that connects pet walkers with pet owners to provide walking services, it has a geolocation system to find nearby walkers.',
 
     'experience.title.opti': 'Mobile Developer',
     'experience.company.opti': 'Optiventa',
