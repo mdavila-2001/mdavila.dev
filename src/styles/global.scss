@@ -1,18 +1,21 @@
 @use "variables" as *;
-@use "Header.scss" as *;
-@use "Button.scss" as *;
-@use "Input.scss" as *;
-@use "Textarea.scss" as *;
-@use "Hero.scss" as *;
-@use "Skills.scss" as *;
-@use "About.scss" as *;
-@use "AboutHero.scss" as *;
-@use "AboutCard.scss" as *;
-@use "SkillsGrid.scss" as *;
-@use "Experience.scss" as *;
-@use "Timeline.scss" as *;
-@use "TimelineItem.scss" as *;
-
+@use "ui/Header.scss" as *;
+@use "ui/Button.scss" as *;
+@use "ui/Input.scss" as *;
+@use "ui/Textarea.scss" as *;
+@use "ui/Footer.scss" as *;
+@use "ui/Badge.scss" as *;
+@use "home/Hero.scss" as *;
+@use "home/Skills.scss" as *;
+@use "about/About.scss" as *;
+@use "about/AboutHero.scss" as *;
+@use "about/AboutCard.scss" as *;
+@use "about/SkillsGrid.scss" as *;
+@use "experience/Experience.scss" as *;
+@use "experience/Timeline.scss" as *;
+@use "experience/TimelineItem.scss" as *;
+@use "projects/ProjectCard.scss" as *;
+@use "contact/Contact.scss" as *;
 
 * {
   margin: 0;

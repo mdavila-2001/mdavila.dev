@@ -60,6 +60,19 @@ export const ui = {
     'about.exp': 'Años Exp.',
     'about.projects': 'Proyectos',
 
+    'projects.title': 'Proyectos',
+    'projects.subtitle': 'Una colección de aplicaciones que demuestran experiencia en arquitectura frontend, escalabilidad de backend, diseño centrado en el usuario y aseguramiento de calidad.',
+
+    'project.status.live': 'En vivo',
+    'project.status.beta': 'Beta',
+    'project.status.wip': 'En desarrollo',
+    'project.code': 'Ver código',
+    'project.details': 'Detalles',
+
+    'projects.title.aportaya': 'AportaYa',
+    'projects.subtitle.aportaya': 'Plataforma de Crowdfunding',
+    'projects.description.aportaya': 'AportaYa es una plataforma de crowdfunding para proyectos de distintas causas con el fin de ayudar a los autores a cumplir sus objetivos económicos. El proyecto cuenta con un sistema de pagos nativo que de momento está maquetado.',
+
     'experience.title.opti': 'Desarrollador Mobile',
     'experience.company.opti': 'Optiventa',
     'experience.year_start.opti': 'Febrero 2025',
@@ -171,6 +184,17 @@ export const ui = {
 
     'about.exp': 'Years Exp.',
     'about.projects': 'Projects',
+
+    'projects.title': 'Projects',
+    'project.status.live': 'Live',
+    'project.status.beta': 'Beta',
+    'project.status.wip': 'Work in progress',
+    'project.code': 'View code',
+    'project.details': 'Details',
+
+    'projects.title.aportaya': 'AportaYa',
+    'projects.subtitle.aportaya': 'Crowdfunding Platform',
+    'projects.description.aportaya': 'AportaYa is a crowdfunding platform for projects of different causes in order to help authors achieve their economic goals. The project has a native payment system that is currently being prototyped.',
 
     'experience.title.opti': 'Mobile Developer',
     'experience.company.opti': 'Optiventa',

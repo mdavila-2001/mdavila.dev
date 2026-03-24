@@ -1,0 +1,10 @@
+---
+import { projects } from '../../data/projects';
+import ProjectCard from './ProjectCard.astro';
+---
+
+<section class="projects-grid">
+  {projects.map(project => (
+    <ProjectCard project={project} />
+  ))}
+</section>

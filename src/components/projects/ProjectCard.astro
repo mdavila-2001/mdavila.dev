@@ -1,0 +1,56 @@
+---
+import Badge from '../ui/Badge.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+interface Props {
+  project: any;
+}
+
+const { project } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Get the first image or a placeholder
+const firstImage = Array.isArray(project.image) ? project.image[0] : project.image;
+const imageUrl = firstImage || 'https://via.placeholder.com/600x400?text=No+Image';
+---
+
+<article class="project-card group reveal">
+  <div class="image-wrapper">
+    <div class="image" style={`background-image: url(${imageUrl})`}></div>
+    <div class="image-overlay"></div>
+    <div class="image-action">
+      <span class="icon-circle">
+        <span class="material-symbols-outlined">open_in_new</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="header">
+      <h3 class="title">{t(project.title as any)}</h3>
+      <Badge status={project.status} />
+    </div>
+
+    <p class="description">{t(project.description as any)}</p>
+
+    <div class="tech-stack">
+      {project.tech.map((item: string) => (
+        <span class="tech-tag">{item}</span>
+      ))}
+    </div>
+
+    <div class="actions">
+      {project.codeUrl && (
+        <a href={project.codeUrl} target="_blank" class="action-btn outline">
+          <span class="material-symbols-outlined">code</span>
+          {t('project.code' as any) || 'Code'}
+        </a>
+      )}
+      <a href={`/${lang}/projects/${project.id || ''}`} class="action-btn secondary">
+        {t('project.details' as any) || 'Details'}
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</article>

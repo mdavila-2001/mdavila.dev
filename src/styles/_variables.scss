@@ -15,6 +15,14 @@
   --bg-gradient-3: #0ea5e9;
   --bg-gradient-4: #020617;
   
+  --color-status-live: #10b981;
+  --color-status-beta: #3b82f6;
+  --color-status-wip: #f59e0b;
+  
+  --color-status-live-bg: rgba(16, 185, 129, 0.1);
+  --color-status-beta-bg: rgba(59, 130, 246, 0.1);
+  --color-status-wip-bg: rgba(245, 158, 11, 0.1);
+  
   --color-glass-panel: rgba(16, 22, 34, 0.7);
   --color-glass-card: rgba(30, 41, 59, 0.4);
   --color-glass-card-hover: rgba(30, 41, 59, 0.6);
@@ -39,6 +47,14 @@
   --bg-gradient-2: #d1fae5; /* Light green */
   --bg-gradient-3: #e0f2fe; /* Light sky blue */
   --bg-gradient-4: #f1f5f9; /* Slate 50 background */
+
+  --color-status-live: #059669;
+  --color-status-beta: #2563eb;
+  --color-status-wip: #d97706;
+
+  --color-status-live-bg: rgba(5, 150, 105, 0.1);
+  --color-status-beta-bg: rgba(37, 99, 235, 0.1);
+  --color-status-wip-bg: rgba(217, 119, 6, 0.1);
 
   --color-glass-panel: rgba(255, 255, 255, 0.7);
   --color-glass-card: rgba(255, 255, 255, 0.5);
