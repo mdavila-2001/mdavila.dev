@@ -30,5 +30,5 @@ export const projects: Project[] = [
     status: 'wip',
     tech: ['Java', 'Android', 'Kotlin', 'Jetpack Compose'],
     codeUrl: 'https://github.com/mdavila-2001/gopuppy',
-  }
+  },
 ]

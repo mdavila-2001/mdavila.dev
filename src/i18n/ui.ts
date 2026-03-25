@@ -77,6 +77,9 @@ export const ui = {
     'projects.subtitle.gopuppy': 'Aplicación para paseadores y dueños',
     'projects.description.gopuppy': 'GoPuppy es una aplicación móvil para Android que conecta a paseadores de mascotas con dueños para brindar el servicio de paseos, cuenta con un sistema de geolocalización para encontrar paseadores cercanos.',
     
+    'projects.title.hilomagico': 'Hilo Mágico',
+    'projects.subtitle.hilomagico': 'E-Commerce Full Stack Optimizado para SEO',
+    'projects.description.hilomagico': 'Hilo Mágico es sistema de comercio electrónico Full Stack, orientado a optimizar el SEO de negocios de búsqueda. Cuenta con su servicio de chatbot también',
 
     'experience.title.opti': 'Desarrollador Mobile',
     'experience.company.opti': 'Optiventa',
@@ -205,7 +208,11 @@ export const ui = {
 
     'projects.title.gopuppy': 'GoPuppy',
     'projects.subtitle.gopuppy': 'Application for pet walkers and owners',
-    'projects.description.gopuppy': 'GoPuppy is an Android mobile application that connects pet walkers with pet owners to provide walking services, it has a geolocation system to find nearby walkers.',
+    'projects.description.gopuppy': 'GoPuppy is an Android mobile application that connects pet walkers with pet owners to provide walking services, it has a geolocation system to find nearby walkers.', 
+    
+    'projects.title.hilomagico': 'Hilo Mágico',
+    'projects.subtitle.hilomagico': 'Full Stack E-Commerce optimized for SEO',
+    'projects.description.hilomagico': 'Hilo Mágico is a Full Stack e-commerce system, oriented to optimize the SEO of search businesses. It also has its own chatbot service',
 
     'experience.title.opti': 'Mobile Developer',
     'experience.company.opti': 'Optiventa',
