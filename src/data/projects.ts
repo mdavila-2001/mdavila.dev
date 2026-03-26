@@ -31,4 +31,15 @@ export const projects: Project[] = [
     tech: ['Java', 'Android', 'Kotlin', 'Jetpack Compose'],
     codeUrl: 'https://github.com/mdavila-2001/gopuppy',
   },
+  {
+    id: 3,
+    title: 'projects.title.hilomagico',
+    subtitle: 'projects.subtitle.hilomagico',
+    description: 'projects.description.hilomagico',
+    image: [ 'https://i.ibb.co/gFv5PjcF/imagen-2026-03-25-141339158.png' ],
+    status: 'beta',
+    tech: ['Astro', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Docker', 'Redis', 'Qdrant'],
+    codeUrl: 'https://github.com/mdavila-2001/hilomagico',
+    demoUrl: 'https://hilomagico-demo.netlify.app'
+  },
 ]
